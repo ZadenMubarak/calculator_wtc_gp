@@ -29,23 +29,21 @@ def divide(a,b):
 def multiply(a,b):
     return a*b
 
+operator = input("what operator e.g[+,-,*,/]: ")
 a = int(input("enter your first number: "))
 b = int(input("enter your second number: "))
-operator = input("what operator e.g[+,-,*,/]: ")
-
-
 
 if __name__ == "__main__":
     # sum_ = str(input(""))
     # print(calculator(sum_))
     if operator == "+":
-        print(add(a,b))
+        print('result: ',add(a,b))
 
     elif operator == "-":
-        print(subtract(a,b))
+        print('result: ',subtract(a,b))
 
     elif operator == "*":
-        print(multiply(a,b))
+        print('result: ',multiply(a,b))
 
     elif operator == "/":
-        print(divide(a,b))
+        print('result: ',divide(a,b))
