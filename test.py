@@ -1,42 +1,38 @@
-import random
-# Create a list of colors
-colors = ["red", "yellow", "green", "blue"]
+import unittest
+from calcutor import *
 
-# Create a list of numbers
-numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+class TestMathFunctions(unittest.TestCase):
 
-# Create a list of action cards
-action_cards = ["reverse", "skip", "draw_two"]
+    def test_add(self):
+        # Test basic addition
+        self.assertEqual(add(2, 3), 5)
+        self.assertEqual(add(-1, 1), 0)
+        self.assertEqual(add(0, 0), 0)
+        self.assertEqual(add(100, 200), 300)
 
-# Create a list of wild cards
-wild_cards = ["wild", "wild_draw_four"]
+    def test_subtract(self):
+        # Test basic subtraction
+        self.assertEqual(subtract(3, 2), 1)
+        self.assertEqual(subtract(-1, -1), 0)
+        self.assertEqual(subtract(0, 5), -5)
+        self.assertEqual(subtract(10, 5), 5)
 
-# Create a new deck
-deck = []
+    def test_multiply(self):
+        # Test basic multiplication
+        self.assertEqual(multiply(2, 3), 6)
+        self.assertEqual(multiply(-1, 1), -1)
+        self.assertEqual(multiply(0, 5), 0)
+        self.assertEqual(multiply(100, 0), 0)
 
-# Add number cards to the deck
-for color in colors:
-    for number in numbers:
-        deck.append([color, number])
+    def test_divide(self):
+        # Test basic division
+        self.assertEqual(divide(6, 3), 2)
+        self.assertEqual(divide(-10, 2), -5)
+        self.assertEqual(divide(5, 2), 2.5)
+        
+        # Test division by zero
+        with self.assertRaises(ZeroDivisionError):
+            divide(5, 0)
 
-# Add action cards to the deck
-for color in colors:
-    for action_card in action_cards:
-        deck.append([color, action_card])
-
-# Add wild cards to the deck
-for i in range(4):
-    deck.append(wild_cards[0])
-    deck.append(wild_cards[1])
-
-# Shuffle the deck
-random.shuffle(deck)
-
-# Create a player's hand
-player_1 = []
-
-for card in range(7):
-    player_1.append(deck.pop(0))
-
-print(player_1)
-
+if __name__ == '__main__':
+    unittest.main()
